@@ -32,20 +32,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@semantic-ui/astro-lit": "^5.1.1",
+    "@astrojs/check": "^0.9.9",
+    "@semantic-ui/astro-lit": "^5.3.0",
     "@webcomponents/template-shadowroot": "^0.2.1",
-    "astro": "^5.17.2",
-    "js-yaml": "^4.1.1",
-    "lit": "^3.1.1",
-    "marked": "^11.1.1",
-    "sass": "^1.70.0",
-    "typescript": "^5.3.3"
+    "astro": "^5.18.2",
+    "js-yaml": "^4.3.0",
+    "lit": "^3.3.3",
+    "marked": "^18.0.7",
+    "sass": "^1.101.3",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9"
   },
   "resolutions": {
-    "lodash": "^4.17.23"
+    "lodash": "^4.18.1",
+    "sharp": "^0.35.0"
   }
 }
