@@ -1,0 +1,45 @@
+# Keep dependencies current with the fewest possible PRs:
+# monthly checks, with everything grouped into one PR per ecosystem.
+version: 2
+updates:
+  # Web app packages (npm / yarn)
+  - package-ecosystem: npm
+    directory: /web
+    schedule:
+      interval: weekly
+      day: thursday
+    open-pull-requests-limit: 1
+    groups:
+      web:
+        patterns: ["*"]
+    commit-message:
+      prefix: "chore(deps)"
+    labels: ["dependencies"]
+
+  # GitHub Actions used in workflows
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: thursday
+    open-pull-requests-limit: 1
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "chore(ci)"
+    labels: ["dependencies"]
+
+  # Docker base images (Dockerfile)
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: thursday
+    open-pull-requests-limit: 1
+    groups:
+      docker:
+        patterns: ["*"]
+    commit-message:
+      prefix: "chore(docker)"
+    labels: ["dependencies"]
