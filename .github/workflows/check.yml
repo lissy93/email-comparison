@@ -1,36 +1,48 @@
-name: 🚦 Check - Validate PR
+name: 🚦 Check PR
 
 on:
   pull_request:
     branches: [master]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  validate-data:
-    name: Check YAML
+  changes:
+    name: Detect Changes
     runs-on: ubuntu-latest
+    outputs:
+      web: ${{ steps.filter.outputs.web }}
+      yaml: ${{ steps.filter.outputs.yaml }}
+      workflows: ${{ steps.filter.outputs.workflows }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@v7
+      - name: Filter Paths
+        uses: dorny/paths-filter@v4
+        id: filter
         with:
-          node-version: 22
+          filters: |
+            web:
+              - 'web/**'
+            yaml:
+              - 'email-provider-data.yml'
+              - 'schema.json'
+            workflows:
+              - '.github/workflows/**'
+              - '.github/zizmor.yml'
 
-      - name: Check YAML syntax
-        run: npx -y js-yaml email-provider-data.yml > /dev/null
-
-      - name: Validate against schema
-        run: |
-          npx -y js-yaml email-provider-data.yml > /tmp/data.json
-          npx -y ajv-cli validate -s schema.json -d /tmp/data.json --strict=false
-
-  type-check:
-    name: Check Web
+  web:
+    name: Web
     runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.web == 'true' || github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -50,3 +62,45 @@ jobs:
         run: yarn run check
         working-directory: web
 
+  yaml:
+    name: YAML
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.yaml == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Check YAML syntax
+        run: npx -y js-yaml email-provider-data.yml > /dev/null
+
+      - name: Validate against schema
+        run: |
+          npx -y js-yaml email-provider-data.yml > /tmp/data.json
+          npx -y ajv-cli validate -s schema.json -d /tmp/data.json --strict=false
+
+  workflows:
+    name: Workflows
+    runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.workflows == 'true' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Run Actionlint
+        uses: raven-actions/actionlint@v2
+        with:
+          fail-on-error: true
+
+      - name: Run Zizmor
+        uses: zizmorcore/zizmor-action@v0.6.0
+        with:
+          inputs: .github/workflows/
+          advanced-security: false
+          annotations: true

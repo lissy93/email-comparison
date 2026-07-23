@@ -5,6 +5,9 @@ on:
   push: { tags: ['v*'] }
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   mirror:
     runs-on: ubuntu-latest

@@ -1,0 +1,8 @@
+# zizmor config for auditing our GitHub Actions workflows. Docs: https://docs.zizmor.sh
+# unpinned-uses: our only unpinned actions are official/trusted, and Dependabot keeps them current
+# artipacked: false positives - we never expose checkout credentials
+rules:
+  unpinned-uses:
+    disable: true
+  artipacked:
+    disable: true
