@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM --platform=$BUILDPLATFORM node:22-alpine as build
+FROM --platform=$BUILDPLATFORM node:24-alpine AS build
 WORKDIR /app
 COPY web/package.json web/yarn.lock ./
 RUN yarn install --frozen-lockfile
