@@ -5,11 +5,14 @@ on:
   push: { tags: ['v*'] }
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
-      - uses: lissy93/repo-mirror-action@main
+      - uses: lissy93/repo-mirror-action@v1.6.0
         with:
           ssh_key: ${{ secrets.MIRROR_SSH }}
           host: git@codeberg.org
