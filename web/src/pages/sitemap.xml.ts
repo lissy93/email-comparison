@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 import type { MailServices } from '../types/MailServices';
 import { makeKey } from '../utils/transform-data';
 import config from '../utils/config';
