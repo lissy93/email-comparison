@@ -35,10 +35,10 @@
     "@astrojs/check": "^0.9.10",
     "@semantic-ui/astro-lit": "^5.3.0",
     "@webcomponents/template-shadowroot": "^0.2.1",
-    "astro": "^7.1.6",
+    "astro": "^7.2.0",
     "js-yaml": "^5.2.3",
     "lit": "^3.3.3",
-    "marked": "^18.0.7",
+    "marked": "^18.0.9",
     "sass": "^1.102.0",
     "typescript": "^6.0.3"
   },
