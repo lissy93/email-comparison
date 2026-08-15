@@ -1,17 +1,20 @@
-# Keep dependencies current with the fewest possible PRs:
-# monthly checks, with everything grouped into one PR per ecosystem.
+# Dependabot updates of main dependencies
+# Updates are aprox monthly, since site is small and static
+# but security updates can come immdiatley
 version: 2
 updates:
   # Web app packages (npm / yarn)
   - package-ecosystem: npm
     directory: /web
     schedule:
-      interval: weekly
-      day: thursday
+      interval: monthly
     open-pull-requests-limit: 1
     groups:
       web:
         patterns: ["*"]
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
     commit-message:
       prefix: "chore(deps)"
     labels: ["dependencies"]
@@ -20,12 +23,13 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-      day: thursday
+      interval: monthly
     open-pull-requests-limit: 1
     groups:
       actions:
         patterns: ["*"]
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: "chore(ci)"
     labels: ["dependencies"]
@@ -34,12 +38,16 @@ updates:
   - package-ecosystem: docker
     directory: /
     schedule:
-      interval: weekly
-      day: thursday
+      interval: monthly
     open-pull-requests-limit: 1
     groups:
       docker:
         patterns: ["*"]
+    cooldown:
+      default-days: 14
+    ignore:
+      - dependency-name: "node"
+        update-types: ["version-update:semver-major"]
     commit-message:
       prefix: "chore(docker)"
     labels: ["dependencies"]
