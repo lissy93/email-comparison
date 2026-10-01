@@ -25,7 +25,7 @@ This is a community-maintained resource, so if you spot something that should be
 ### Contributing
 Contributions of any type are welcome!
 All provider data is located in the [`email-provider-data.yml`](https://github.com/Lissy93/email-comparison/blob/master/email-provider-data.yml) file.
-Please see the [Contributing](https://github.com/Lissy93/email-comparison/blob/main/.github/CONTRIBUTING.md) docs for more info.
+Please see the [Contributing](https://github.com/Lissy93/email-comparison/blob/master/.github/CONTRIBUTING.md) docs for more info.
 
 ### Developing
 
