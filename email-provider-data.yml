@@ -921,3 +921,74 @@ mailProviders:
   activeDevelopment:
     text: 'Yes'
     level: 1
+
+# Aster Mail
+- name: Aster Mail
+  link: https://astermail.org/
+  icon: https://avatars.githubusercontent.com/u/251526721?s=256
+  discussionId: 0
+  links:
+    - { title: GitHub, href: 'https://github.com/Aster-Privacy' }
+    - { title: Privacy Policy, href: 'https://astermail.org/privacy' }
+    - { title: Encryption Info, href: 'https://astermail.org/crypto' }
+    - { title: Transparency Report, href: 'https://astermail.org/transparency' }
+    - { title: Status Page, href: 'https://status.astermail.org' }
+    - { title: Blog, href: 'https://astermail.org/blog' }
+    - { title: Reddit, href: 'https://reddit.com/r/AsterPrivacy' }
+    - { title: Android App, href: 'https://play.google.com/store/apps/details?id=org.astermail.android' }
+    - { title: F-Droid, href: 'https://f-droid.org/packages/org.astermail.android/' }
+  description: >
+    A US-incorporated service with servers hosted in Germany. Mail between
+    Aster users is end-to-end encrypted, including subject lines, while mail
+    from other providers is encrypted on arrival. Note: The service launched
+    in 2026, so has a limited track record, and has not been independently
+    audited.
+  jurisdiction:
+    text: United States (5 Eyes)
+    level: 3
+  encryption:
+    text: PGP (post-quantum hybrid for internal mail)
+    level: 1
+  openSource:
+    text: Client Apps Only
+    level: 2
+  onionSite:
+    text: 'Yes'
+    level: 1
+  pricing:
+    text: |
+      Free Plan - 10 GB, 5 aliases, 1 custom domain.
+      Star plan from $2.42/mo (annual) or $2.99/mo,
+      with 50 GB, 15 aliases and IMAP access
+    level: 1
+  customDomain:
+    text: |
+      Yes
+      (1 on Free Plan)
+    level: 1
+  aliases:
+    text: |
+      Yes
+      (5 on Free Plan, 15 in Star, $2.99/m)
+      Catch-all on paid plans only
+    level: 2
+  webClientAccess:
+    text: |
+      Yes, but through Bridge
+      (Star Plan, $2.99/m)
+    level: 2
+  securityAudit:
+    text: 'No'
+    level: 3
+  acceptsCrypto:
+    text: Yes (BTC, XMR and USDC)
+    level: 1
+  personalInfoRequired:
+    text: None
+    level: 1
+  mobileApp:
+    text: Yes (Android only; iOS in beta)
+    level: 2
+  activeDevelopment:
+    text: 'Yes'
+    level: 1
