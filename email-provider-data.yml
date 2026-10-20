@@ -992,3 +992,69 @@ mailProviders:
   activeDevelopment:
     text: 'Yes'
     level: 1
+
+# Secria Mail
+- name: Secria Mail
+  link: https://secria.me/mail/
+  icon: https://secria.me/secrialogo.png
+  discussionId: 0
+  links:
+    - { title: Privacy Policy, href: 'https://secria.me/privacy-policy/' }
+    - { title: Encryption Info, href: 'https://secria.me/whitepaper/mail/' }
+    - { title: Security, href: 'https://secria.me/security/' }
+    - { title: Blog, href: 'https://secria.me/blog/' }
+    - { title: Reddit, href: 'https://www.reddit.com/r/Secria/' }
+    - { title: iOS App, href: 'https://apps.apple.com/us/app/secria-mail/id6756082980' }
+    - { title: Android App, href: 'https://play.google.com/store/apps/details?id=com.secria.webapp' }
+  description: >
+    A US-incorporated service that also offers a VPN. Mail between Secria
+    users is end-to-end encrypted, with post-quantum cryptography (hybrid
+    ML-KEM-1024 + X25519) on by default. Mail from other providers is
+    encrypted by the server when it arrives. Note: Secria has not been
+    independently audited.
+  jurisdiction:
+    text: United States (5 Eyes)
+    level: 3
+  encryption:
+    text: Hybrid ML-KEM-1024 + X25519 (post-quantum) for internal and stored mail
+    level: 2
+  openSource:
+    text: 'No'
+    level: 3
+  onionSite:
+    text: 'No'
+    level: 3
+  pricing:
+    text: |
+      Free Plan - 1 GB, 2 aliases, no custom domain.
+      Mail Plus $3.25/mo (annual) or $3.99/mo,
+      with 20 GB, 15 aliases and 3 custom domains
+    level: 1
+  customDomain:
+    text: |
+      Yes
+      (Mail Plus, from $3.25/m)
+    level: 2
+  aliases:
+    text: |
+      Yes
+      (2 on Free Plan, 15 in Mail Plus, unlimited in Pro)
+    level: 2
+  webClientAccess:
+    text: 'No'
+    level: 3
+  securityAudit:
+    text: 'No'
+    level: 3
+  acceptsCrypto:
+    text: 'No'
+    level: 3
+  personalInfoRequired:
+    text: Requires a name
+    level: 2
+  mobileApp:
+    text: Yes (iOS and Android)
+    level: 1
+  activeDevelopment:
+    text: 'Yes'
+    level: 1
